@@ -1,7 +1,7 @@
 /*
  * ws2812.c
  *
- *  Created on: 20 paŸ 2018
+ *  Created on: 20 paï¿½ 2018
  *      Author: Rafal
  */
 
@@ -70,34 +70,7 @@ void send_color(uint32_t color) {
 
 	uint8_t r = color>>16, g = color>>8, b = color;
 
-
-	if( g & 128 ) send_one(); else send_zero();
-	if( g & 64 ) send_one(); else send_zero();
-	if( g & 32 ) send_one(); else send_zero();
-	if( g & 16 ) send_one(); else send_zero();
-	if( g & 8 ) send_one(); else send_zero();
-	if( g & 4 ) send_one(); else send_zero();
-	if( g & 2 ) send_one(); else send_zero();
-	if( g & 1 ) send_one(); else send_zero();
-
-	if( r & 128 ) send_one(); else send_zero();
-	if( r & 64 ) send_one(); else send_zero();
-	if( r & 32 ) send_one(); else send_zero();
-	if( r & 16 ) send_one(); else send_zero();
-	if( r & 8 ) send_one(); else send_zero();
-	if( r & 4 ) send_one(); else send_zero();
-	if( r & 2 ) send_one(); else send_zero();
-	if( r & 1 ) send_one(); else send_zero();
-
-	if( b & 128 ) send_one(); else send_zero();
-	if( b & 64 ) send_one(); else send_zero();
-	if( b & 32 ) send_one(); else send_zero();
-	if( b & 16 ) send_one(); else send_zero();
-	if( b & 8 ) send_one(); else send_zero();
-	if( b & 4 ) send_one(); else send_zero();
-	if( b & 2 ) send_one(); else send_zero();
-	if( b & 1 ) send_one(); else send_zero();
-
+	send_rgb(r, g, b);
 }
 
 void send_leds(TWSRGB * leds) {
